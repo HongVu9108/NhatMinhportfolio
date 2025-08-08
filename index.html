@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyen Viet Nhat Minh - Engineering Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00ffff, #0080ff);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Geometric Background Animation */
+        .geometric-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .geometric-shape {
+            position: absolute;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            border-radius: 50%;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 15%;
+            animation-delay: -2s;
+            transform: rotate(45deg);
+        }
+
+        .shape-3 {
+            width: 80px;
+            height: 80px;
+            bottom: 30%;
+            left: 20%;
+            animation-delay: -4s;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .shape-4 {
+            width: 120px;
+            height: 120px;
+            top: 10%;
+            right: 30%;
+            animation-delay: -1s;
+            border-radius: 50%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.05));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Shimmer Animation */
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ffff, #0080ff, #8000ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #cccccc;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #aaaaaa;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #00ffff, #0080ff);
+            border: none;
+            border-radius: 50px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
+            to { text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 128, 255, 0.5); }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #00ffff;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #00ffff, #0080ff);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #00ffff;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #cccccc;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00ffff;
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .award-card {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 128, 255, 0.1));
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 255, 255, 0.2);
+        }
+
+        .award-card h3 {
+            color: #00ffff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .award-year {
+            color: #0080ff;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-image {
+            width: 100%;
+            height: 150px;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: #00ffff;
+            font-size: 0.9rem;
+        }
+
+        /* Leadership Section */
+        .leadership-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .leadership-card {
+            background: linear-gradient(135deg, rgba(128, 0, 255, 0.1), rgba(0, 128, 255, 0.1));
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(128, 0, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(128, 0, 255, 0.2);
+        }
+
+        .leadership-card h3 {
+            color: #8000ff;
+            margin-bottom: 1rem;
+        }
+
+        .scroll-images {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .scroll-image {
+            min-width: 100px;
+            height: 80px;
+            background: rgba(128, 0, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8000ff;
+            font-size: 0.8rem;
+            text-align: center;
+            border: 1px solid rgba(128, 0, 255, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(0, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #00ffff;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, #00ffff, #0080ff);
+            border: none;
+            border-radius: 50px;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leadership-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Particle Effect */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00ffff;
+            border-radius: 50%;
+            animation: particle-float 4s linear infinite;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="geometric-bg">
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+        <div class="geometric-shape shape-3"></div>
+        <div class="geometric-shape shape-4"></div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">NHAT MINH</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="CON_AWARD.html" target="_blank">Honors & Awards</a></li>
+                <li><a href="leadership.html" target="_blank">Leadership</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="shimmer">NGUYEN VIET NHAT MINH</h1>
+            <p class="hero-subtitle">Engineering · Applied Science · Community Leadership</p>
+            <p class="hero-description">
+                Welcome! I'm Nguyen Viet Nhat Minh, currently a Physics-specialized student at HUS High School for Gifted Students. My academic background, community leadership, and research interest in sustainable innovation have shaped my aspiration to pursue Engineering. Discover my journey below.
+            </p>
+            <a href="#about" class="cta-button shimmer">Explore My Profile</a>
+        </div>
+    </section>
+
+    <section id="about" class="section fade-in">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-image shimmer">
+                <img src="IMG_0661.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+            </div>
+            <div class="about-text">
+                <p>I am a Grade 11 student in the Physics-specialized class at HUS High School for Gifted Students, with a GPA of 9.5 in Grade 10 and 9.4 in Grade 11. I have achieved an SAT score of 1560 and an IELTS score of 7.5.</p>
+                <p>My interest in engineering developed gradually through years of engaging with mathematics, physics, and hands-on problem solving. From classroom experiments to community activities, I became increasingly aware of how scientific knowledge can be transformed into real solutions that serve people and the environment.</p>
+                <p>This realization guided me toward engineering—a field where I can apply technical understanding to create sustainable, practical, and human-centered innovations. I see engineering as a path to combine logic with compassion, and creativity with responsibility.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">9.5</div>
+                        <div>Grade 10 GPA</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1560</div>
+                        <div>SAT Score</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">7.5</div>
+                        <div>IELTS Score</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">9.4</div>
+                        <div>Grade 11 GPA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="awards" class="section fade-in">
+        <h2>Honors & Awards</h2>
+        <div class="awards-grid">
+            <a href="CON_AWARD.html#ipitex" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="award-card shimmer" style="cursor:pointer;">
+                    <div class="award-image" style="position: relative; width: 100%; max-width: 300px; height: 150px; overflow: hidden; border-radius: 10px;">
+                        <img src="ipitex1.jpg" 
+                             alt="Gold Medal IPITEx Biochemistry Category certificate, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="0">
+                        <img src="ipitex2.jpg" 
+                             alt="Project presentation at IPITEx, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="1">
+                        <img src="z6782421039624_2f86e0b90beaa68ebfe2c1b84c02d034.jpg" 
+                             alt="Award ceremony at IPITEx, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="2">
+                        <button type="button" aria-label="Previous image" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-left">&#8592;</button>
+                        <button type="button" aria-label="Next image" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-right">&#8594;</button>
+                    </div>
+                    <script>
+                    (function() {
+                        const container = document.currentScript.previousElementSibling;
+                        const images = container.querySelectorAll('.award-photo');
+                        const leftBtn = container.querySelector('.award-arrow-left');
+                        const rightBtn = container.querySelector('.award-arrow-right');
+                        let current = 0;
+                        let intervalId = null;
+
+                        function updateImages() {
+                            images.forEach((img, idx) => {
+                                img.style.opacity = (idx === current) ? '1' : '0';
+                            });
+                            leftBtn.style.display = 'none';
+                            rightBtn.style.display = 'none';
+                        }
+
+                        function nextImage() {
+                            current = (current + 1) % images.length;
+                            updateImages();
+                        }
+
+                        // Start auto slideshow
+                        intervalId = setInterval(nextImage, 1500);
+
+                        // Initialize
+                        updateImages();
+                    })();
+                    </script>
+                    <script>
+                    (function() {
+                        const container = document.currentScript.previousElementSibling;
+                        const images = container.querySelectorAll('.award-photo');
+                        const leftBtn = container.querySelector('.award-arrow-left');
+                        const rightBtn = container.querySelector('.award-arrow-right');
+                        let current = 0;
+
+                        function updateImages() {
+                            images.forEach((img, idx) => {
+                                img.style.opacity = (idx === current) ? '1' : '0';
+                            });
+                            leftBtn.style.display = (current === 0) ? 'none' : 'flex';
+                            rightBtn.style.display = (current === images.length - 1) ? 'none' : 'flex';
+                        }
+
+                        leftBtn.addEventListener('click', () => {
+                            if (current > 0) {
+                                current--;
+                                updateImages();
+                            }
+                        });
+
+                        rightBtn.addEventListener('click', () => {
+                            if (current < images.length - 1) {
+                                current++;
+                                updateImages();
+                            }
+                        });
+
+                        updateImages();
+                    })();
+                    </script>
+                    <div class="award-year">2024</div>
+                    <h3>Gold Medal – IPITEx Biochemistry Category</h3>
+                    <p>Developed a chemical-based solution for filtering polluted river water. The project was recognized for its environmental impact and practical application.</p>
+                </div>
+            </a>
+            <a href="CON_AWARD.html#asmo" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="award-card shimmer" style="cursor:pointer;">
+                    <div class="award-image" style="position: relative; width: 100%; max-width: 300px; height: 150px; overflow: hidden; border-radius: 10px;">
+                        <img src="asmo.jpg" 
+                             alt="Gold Medal IPITEx Biochemistry Category certificate, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="0">
+                        <img src="z6782419843679_550e3be71db57e1e8dd885c626c16d63.jpg" 
+                             alt="Project presentation at IPITEx, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="1">
+                        <img src="z6782418012545_b89c1a0bcfcf64f498add8c917a228a7.jpg" 
+                             alt="Award ceremony at IPITEx, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="2">
+                        <img src="z6782412230287_6592d4ae21a16784a23b831639274749.jpg" 
+                             alt="Project presentation at IPITEx, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="3">
+                        <img src="z6782410088184_754fe45818daef9cf932bdd387fdfedf.jpg" 
+                             alt="Project presentation at IPITEx, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="4">
+                        <button type="button" aria-label="Previous image" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-left">&#8592;</button>
+                        <button type="button" aria-label="Next image" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-right">&#8594;</button>
+                    </div>
+                    <script>
+                    (function() {
+                        const container = document.currentScript.previousElementSibling;
+                        const images = container.querySelectorAll('.award-photo');
+                        const leftBtn = container.querySelector('.award-arrow-left');
+                        const rightBtn = container.querySelector('.award-arrow-right');
+                        let current = 0;
+                        let intervalId = null;
+
+                        function updateImages() {
+                            images.forEach((img, idx) => {
+                                img.style.opacity = (idx === current) ? '1' : '0';
+                            });
+                            leftBtn.style.display = 'none';
+                            rightBtn.style.display = 'none';
+                        }
+
+                        function nextImage() {
+                            current = (current + 1) % images.length;
+                            updateImages();
+                        }
+
+                        // Start auto slideshow
+                        intervalId = setInterval(nextImage, 1500);
+
+                        // Initialize
+                        updateImages();
+                    })();
+                    </script>
+                    <script>
+                    (function() {
+                        const container = document.currentScript.previousElementSibling;
+                        const images = container.querySelectorAll('.award-photo');
+                        const leftBtn = container.querySelector('.award-arrow-left');
+                        const rightBtn = container.querySelector('.award-arrow-right');
+                        let current = 0;
+
+                        function updateImages() {
+                            images.forEach((img, idx) => {
+                                img.style.opacity = (idx === current) ? '1' : '0';
+                            });
+                            leftBtn.style.display = (current === 0) ? 'none' : 'flex';
+                            rightBtn.style.display = (current === images.length - 1) ? 'none' : 'flex';
+                        }
+
+                        leftBtn.addEventListener('click', () => {
+                            if (current > 0) {
+                                current--;
+                                updateImages();
+                            }
+                        });
+
+                        rightBtn.addEventListener('click', () => {
+                            if (current < images.length - 1) {
+                                current++;
+                                updateImages();
+                            }
+                        });
+
+                        updateImages();
+                    })();
+                    </script>
+                    <div class="award-year">2024</div>
+                    <h3>ASMO National Round</h3>
+                    <p>Gold Medal in Mathematics, Silver Medal in English. Achieved top results in national-level academic competitions, demonstrating both analytical and linguistic strengths.</p>
+                </div>
+            </a>
+            <a href="CON_AWARD.html#greenvoice" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="award-card shimmer" style="cursor:pointer;">
+                    <div class="award-image" style="position: relative; width: 100%; max-width: 300px; height: 150px; overflow: hidden; border-radius: 10px;">
+                        <img src="tiếng nói xanh.jpg" 
+                             alt="Gold Medal IPITEx Biochemistry Category certificate, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="0">
+                        <img src="tiếng nói xanh 2.jpg" 
+                             alt="Project presentation at IPITEx, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="1">
+                        <img src="z6782431132833_cf77c9e05402acb100b00b94db063d67.jpg" 
+                             alt="Award ceremony at IPITEx, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="2">
+                        <button type="button" aria-label="Previous image" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-left">&#8592;</button>
+                        <button type="button" aria-label="Next image" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-right">&#8594;</button>
+                    </div>
+                    <script>
+                    (function() {
+                        const container = document.currentScript.previousElementSibling;
+                        const images = container.querySelectorAll('.award-photo');
+                        const leftBtn = container.querySelector('.award-arrow-left');
+                        const rightBtn = container.querySelector('.award-arrow-right');
+                        let current = 0;
+                        let intervalId = null;
+
+                        function updateImages() {
+                            images.forEach((img, idx) => {
+                                img.style.opacity = (idx === current) ? '1' : '0';
+                            });
+                            leftBtn.style.display = 'none';
+                            rightBtn.style.display = 'none';
+                        }
+
+                        function nextImage() {
+                            current = (current + 1) % images.length;
+                            updateImages();
+                        }
+
+                        // Start auto slideshow
+                        intervalId = setInterval(nextImage, 1500);
+
+                        // Initialize
+                        updateImages();
+                    })();
+                    </script>
+                    <script>
+                    (function() {
+                        const container = document.currentScript.previousElementSibling;
+                        const images = container.querySelectorAll('.award-photo');
+                        const leftBtn = container.querySelector('.award-arrow-left');
+                        const rightBtn = container.querySelector('.award-arrow-right');
+                        let current = 0;
+
+                        function updateImages() {
+                            images.forEach((img, idx) => {
+                                img.style.opacity = (idx === current) ? '1' : '0';
+                            });
+                            leftBtn.style.display = (current === 0) ? 'none' : 'flex';
+                            rightBtn.style.display = (current === images.length - 1) ? 'none' : 'flex';
+                        }
+
+                        leftBtn.addEventListener('click', () => {
+                            if (current > 0) {
+                                current--;
+                                updateImages();
+                            }
+                        });
+
+                        rightBtn.addEventListener('click', () => {
+                            if (current < images.length - 1) {
+                                current++;
+                                updateImages();
+                            }
+                        });
+
+                        updateImages();
+                    })();
+                    </script>
+                    <div class="award-year">2025</div>
+                    <h3>Encouragement Award – Green Voice Competition</h3>
+                    <p>Participated in a community-centered contest promoting environmental awareness and creative expression.</p>
+                </div>
+            </a>
+            <a href="CON_AWARD.html#hsgsperformance" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="award-card shimmer" style="cursor:pointer;">
+                    <div class="award-image" style="position: relative; width: 100%; max-width: 300px; height: 150px; overflow: hidden; border-radius: 10px;">
+                        <img src="SOCIALWORK-20250712T091550Z-1-001/z6798047878298_faefdef7a2ad9e00930498a26dffabc7.jpg" 
+                             alt="Gold Medal IPITEx Biochemistry Category certificate, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="0">
+                        <img src="SOCIALWORK-20250712T091550Z-1-001/z6798047890838_1db1a2414374a494bdce509c3763e23f.jpg" 
+                             alt="Project presentation at IPITEx, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="1">
+                        <img src="SOCIALWORK-20250712T091550Z-1-001/z6798048028837_14642991c9976a206094413abe84e168.jpg" 
+                             alt="Award ceremony at IPITEx, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="2">
+                        <img src="SOCIALWORK-20250712T091550Z-1-001/z6798047902150_3466e1c1c5dbc3e5cc97b008f03f46a0.jpg" 
+                             alt="Project presentation at IPITEx, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="3">
+                        <img src="SOCIALWORK-20250712T091550Z-1-001/z6798047881520_09b5f1236f7abfe991bed654179e8e0c.jpg" 
+                             alt="Project presentation at IPITEx, Nguyen Viet Nhat Minh, 2024" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s;" 
+                             class="award-photo" data-index="4">
+                        <button type="button" aria-label="Previous image" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-left">&#8592;</button>
+                        <button type="button" aria-label="Next image" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-right">&#8594;</button>
+                    </div>
+                    <script>
+                    (function() {
+                        const container = document.currentScript.previousElementSibling;
+                        const images = container.querySelectorAll('.award-photo');
+                        const leftBtn = container.querySelector('.award-arrow-left');
+                        const rightBtn = container.querySelector('.award-arrow-right');
+                        let current = 0;
+                        let intervalId = null;
+
+                        function updateImages() {
+                            images.forEach((img, idx) => {
+                                img.style.opacity = (idx === current) ? '1' : '0';
+                            });
+                            leftBtn.style.display = 'none';
+                            rightBtn.style.display = 'none';
+                        }
+
+                        function nextImage() {
+                            current = (current + 1) % images.length;
+                            updateImages();
+                        }
+
+                        // Start auto slideshow
+                        intervalId = setInterval(nextImage, 1500);
+
+                        // Initialize
+                        updateImages();
+                    })();
+                    </script>
+                    <script>
+                    (function() {
+                        const container = document.currentScript.previousElementSibling;
+                        const images = container.querySelectorAll('.award-photo');
+                        const leftBtn = container.querySelector('.award-arrow-left');
+                        const rightBtn = container.querySelector('.award-arrow-right');
+                        let current = 0;
+
+                        function updateImages() {
+                            images.forEach((img, idx) => {
+                                img.style.opacity = (idx === current) ? '1' : '0';
+                            });
+                            leftBtn.style.display = (current === 0) ? 'none' : 'flex';
+                            rightBtn.style.display = (current === images.length - 1) ? 'none' : 'flex';
+                        }
+
+                        leftBtn.addEventListener('click', () => {
+                            if (current > 0) {
+                                current--;
+                                updateImages();
+                            }
+                        });
+
+                        rightBtn.addEventListener('click', () => {
+                            if (current < images.length - 1) {
+                                current++;
+                                updateImages();
+                            }
+                        });
+
+                        updateImages();
+                    })();
+                    </script>
+                    <div class="award-year">2025</div>
+                    <h3>Third Prize – Cultural Performance Competition</h3>
+                    <p>Honored for excellence in team performance and event coordination at HSGS's Anniversary.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="leadership" class="section fade-in">
+        <h2>Leadership & Social Work</h2>
+        <div class="leadership-content">
+            <a href="leadership.html#ant-founder" target="_blank" style="color:inherit; text-decoration:none;">
+                <div class="leadership-card" style="cursor:pointer;">
+                    <h3>
+                        Founder – Ant Community: Hospital Cultural Program
+                    </h3>
+                    <p>Created and led a student-run initiative to bring music and performance to hospital patients, combining creativity with emotional support. Oversaw organization, coordination, and student engagement efforts.</p>
+                    <div class="scroll-images">
+                        <div class="scroll-image" style="padding:0; background:transparent; border:none;">
+                            <img src="z6782786626099_900083c86f56bbc74017c80ece171784.jpg" alt="Hospital Visit 1" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;">
+                        </div>
+                        <div class="scroll-image">
+                            <img src="z6782791202663_d0155df3b6fe542e103e22ea4c8b3104.jpg" alt="Performance" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;">
+                        </div>
+                        <div class="scroll-image">
+                            <img src="z6782791203432_34ffba33e19fe9e649f4894a5fa3839f.jpg" alt="Team Photo" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;">
+                        </div>
+                        <div class="scroll-image">
+                            <img src="z6782791285399_0cfb357b385fcad56de33a2ca4a34a67.jpg" alt="Certificate" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;">
+                        </div>
+                        <div class="scroll-image">
+                            <img src="cộng đồng kiến 2.jpg" alt="Certificate" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;">
+                        </div>
+                        <div class="scroll-image">
+                            <img src="SOCIALWORK-20250712T091550Z-1-001/z6782421677832_2079e1f6e8bf1d448b8d3d4606cf61bb.jpg" alt="Certificate" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;">
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="leadership.html#ant-member" target="_blank" style="color:inherit; text-decoration:none;">
+                <div class="leadership-card" style="cursor:pointer;">
+                    <h3>
+                        Ant Community – Organizing Member
+                    </h3>
+                    <p>Helped run cultural performance events in hospitals to uplift patients and promote emotional well-being.</p>
+                    <div class="scroll-images">
+                        <div class="scroll-image"><img src="SOCIALWORK-20250712T091550Z-1-001/z6782404219489_97c6392eafc2cb597e14752c838208fe (1).jpg" alt="Event 1" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                        <div class="scroll-image"><img src="SOCIALWORK-20250712T091550Z-1-001/z6782403378963_32c9681ca341b14dea5914f64fedf92a.jpg" alt="Event 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                        <div class="scroll-image"><img src="SOCIALWORK-20250712T091550Z-1-001/z6782468780685_7446280a783a7fb324bd7d61ac96b226.jpg" alt="Event 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                        <div class="scroll-image"><img src="SOCIALWORK-20250712T091550Z-1-001/z6784612979165_c40390f3c6d7f4c5ece018815cae927b.jpg" alt="Event 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                        <div class="scroll-image"><img src="SOCIALWORK-20250712T091550Z-1-001/z6782423306676_e36fd414f8c68b1f92229cf5845f9079.jpg" alt="Event 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="leadership.html#cleanup" target="_blank" style="color:inherit; text-decoration:none;">
+                <div class="leadership-card" style="cursor:pointer;">
+                    <h3>
+                        District - Level Post-Storm Tree Cleanup
+                    </h3>
+                    <p>Participated in environmental recovery efforts, contributing to local resilience and community restoration.</p>
+                    <div class="scroll-images">
+                        <div class="scroll-image"><img src="SOCIALWORK-20250712T091550Z-1-001/z6782406257416_8921850b74f684f82112f8dfa433b106.jpg" alt="Cleanup 1" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                        <div class="scroll-image"><img src="SOCIALWORK-20250712T091550Z-1-001/z6782467885339_81eadb5b2552372187ec9c0f82f4991d.jpg" alt="Cleanup 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                        <div class="scroll-image"><img src="cộng đồng kiến1.jpg" alt="Team Work" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="leadership.html#exam-support" target="_blank" style="color:inherit; text-decoration:none;">
+                <div class="leadership-card" style="cursor:pointer;">
+                    <h3>
+                        Volunteer – Exam Support Program at HSGS
+                    </h3>
+                    <p>Provided logistical and motivational support for students during major school examinations.</p>
+                    <div class="scroll-images">
+                        <div class="scroll-image"><img src="SOCIALWORK-20250712T091550Z-1-001/z6782404837815_07077304448c4fceea6555f7ef3a4068.jpg" alt="Support 1" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                        <div class="scroll-image"><img src="SOCIALWORK-20250712T091550Z-1-001/z6782402929530_1696729680cddd427f3af19e59f5b5ea.jpg" alt="Support 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="leadership.html#vanho" target="_blank" style="color:inherit; text-decoration:none;">
+                <div class="leadership-card" style="cursor:pointer;">
+                    <h3>
+                        Teaching Volunteer – Vân Hồ Program
+                    </h3>
+                    <p>Traveled to rural areas to deliver educational workshops, helping to bridge the gap in access to quality education.</p>
+                    <div class="scroll-images">
+                        <div class="scroll-image"><img src="z6782786626099_900083c86f56bbc74017c80ece171784" alt="Teaching 1" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                        <div class="scroll-image"><img src="z6782786626099_900083c86f56bbc74017c80ece171784" alt="Teaching 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                        <div class="scroll-image"><img src="z6782791203432_34ffba33e19fe9e649f4894a5fa3839f" alt="Students" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                        <div class="scroll-image"><img src="z6782791202663_d0155df3b6fe542e103e22ea4c8b3104" alt="Group Photo" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="contact" class="section fade-in">
+        <h2>Contact</h2>
+        <div class="contact-form">
+            <form action="mailto:vuthithuhong9108@gmail.com" method="POST" enctype="text/plain"></form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn shimmer">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Particle effect
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 5000);
+        }
+
+        setInterval(createParticle, 300);
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Dynamic navigation highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

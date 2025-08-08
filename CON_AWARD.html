@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+</head>
+<body>
+    <div class="geometric-bg">
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+        <div class="geometric-shape shape-3"></div>
+        <div class="geometric-shape shape-4"></div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">NHAT MINH</div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="CON_AWARD.html" target="_blank">Honors & Awards</a></li>
+                <li><a href="leadership.html" target="_blank">Leadership</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyen Viet Nhat Minh - Awards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #00ffff;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #00ffff, #0080ff);
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        .award-card {
+            background: rgba(10, 20, 30, 0.8);
+            padding: 0;
+            border-radius: 0;
+            border-left: 4px solid #00ffff;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: visible;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 5rem;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 255, 255, 0.2);
+        }
+
+        .award-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .award-card h3 {
+            color: #00ffff;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .award-year {
+            color: #0080ff;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 128, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        .award-image {
+            width: 100%;
+            max-height: 70vh;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .award-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Shimmer Animation */
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+    </style>
+</head>
+<body>
+<section id="awards" class="section">
+    <h2>Honors & Awards</h2>
+    <div class="awards-grid">
+        <div class="award-card shimmer" id="ipitex">
+            <div class="award-image" style="position: relative; aspect-ratio: 4/3; background: #111;">
+                <img src="ipitex1.jpg" 
+                    alt="Gold Medal certificate for Nguyen Viet Nhat Minh in the IPITEx Biochemistry Category 2024, featuring official logos and text in both English and Thai, with a formal and celebratory tone" 
+                    class="award-photo" data-index="0" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: relative; z-index: 1; background: #222;">
+                <img src="ipitex2.jpg" 
+                    alt="Nguyen Viet Nhat Minh presenting a scientific project at IPITEx 2024, standing beside a display board with charts and diagrams in a bright exhibition hall, focused and confident atmosphere" 
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; z-index: 1; background: #222;" 
+                    class="award-photo" data-index="1">
+                <img src="z6782421039624_2f86e0b90beaa68ebfe2c1b84c02d034.jpg" 
+                    alt="Award ceremony at IPITEx 2024 with Nguyen Viet Nhat Minh receiving a medal on stage, surrounded by event organizers and other participants, festive and proud mood in a decorated auditorium" 
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; z-index: 1; background: #222;" 
+                    class="award-photo" data-index="2">
+                <button type="button" aria-label="Previous image" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-left">&#8592;</button>
+                <button type="button" aria-label="Next image" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-right">&#8594;</button>
+            </div>
+            <div class="award-content">
+                <div class="award-year">2024</div>
+                <h3>Gold Medal – IPITEx Biochemistry Category</h3>
+                <p>Developed a chemical-based solution for filtering polluted river water. The project was recognized for its environmental impact and practical application.</p>
+            </div>
+            <script>
+            (function() {
+                const awardCard = document.currentScript.parentElement;
+                const imageContainer = awardCard.querySelector('.award-image');
+                const images = imageContainer.querySelectorAll('.award-photo');
+                let current = 0;
+                let interval = null;
+
+                function showImage(idx) {
+                    images.forEach((img, i) => {
+                        if (i === idx) {
+                            img.style.opacity = 1;
+                            img.style.position = 'relative';
+                            img.style.zIndex = 1;
+                        } else {
+                            img.style.opacity = 0;
+                            img.style.position = 'absolute';
+                            img.style.zIndex = 1;
+                        }
+                    });
+                }
+
+                function nextImage() {
+                    current = (current + 1) % images.length;
+                    showImage(current);
+                }
+
+                function prevImage() {
+                    current = (current - 1 + images.length) % images.length;
+                    showImage(current);
+                }
+
+                // Arrow buttons
+                const leftBtn = imageContainer.querySelector('.award-arrow-left');
+                const rightBtn = imageContainer.querySelector('.award-arrow-right');
+                leftBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    prevImage();
+                });
+                rightBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    nextImage();
+                });
+
+                // Auto slide on hover over the image area
+                imageContainer.addEventListener('mouseenter', function() {
+                    if (interval) clearInterval(interval);
+                    interval = setInterval(nextImage, 1000);
+                });
+                imageContainer.addEventListener('mouseleave', function() {
+                    if (interval) clearInterval(interval);
+                    interval = null;
+                });
+
+                // Start with first image
+                showImage(current);
+            })();
+            </script>
+        </div>
+        <div class="award-card shimmer">
+            <div class="award-image" style="position: relative; aspect-ratio: 4/3; background: #111;">
+                <img src="asmo.jpg" 
+                    alt="Gold Medal certificate for Nguyen Viet Nhat Minh in the IPITEx Biochemistry Category 2024, featuring official logos and text in both English and Thai, with a formal and celebratory tone" 
+                    class="award-photo" data-index="0" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: relative; z-index: 1; background: #222;">
+                <img src="z6782419843679_550e3be71db57e1e8dd885c626c16d63.jpg" 
+                    alt="Nguyen Viet Nhat Minh presenting a scientific project at IPITEx 2024, standing beside a display board with charts and diagrams in a bright exhibition hall, focused and confident atmosphere" 
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; z-index: 1; background: #222;" 
+                    class="award-photo" data-index="1">
+                <img src="z6782418012545_b89c1a0bcfcf64f498add8c917a228a7.jpg" 
+                    alt="Award ceremony at IPITEx 2024 with Nguyen Viet Nhat Minh receiving a medal on stage, surrounded by event organizers and other participants, festive and proud mood in a decorated auditorium" 
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; z-index: 1; background: #222;" 
+                    class="award-photo" data-index="2">
+                <img src="z6782412230287_6592d4ae21a16784a23b831639274749.jpg" 
+                    alt="Award ceremony at IPITEx 2024 with Nguyen Viet Nhat Minh receiving a medal on stage, surrounded by event organizers and other participants, festive and proud mood in a decorated auditorium" 
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; z-index: 1; background: #222;" 
+                    class="award-photo" data-index="3">
+                <img src="z6782410088184_754fe45818daef9cf932bdd387fdfedf.jpg" 
+                    alt="Award ceremony at IPITEx 2024 with Nguyen Viet Nhat Minh receiving a medal on stage, surrounded by event organizers and other participants, festive and proud mood in a decorated auditorium" 
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; z-index: 1; background: #222;" 
+                    class="award-photo" data-index="4">
+                <button type="button" aria-label="Previous image" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-left">&#8592;</button>
+                <button type="button" aria-label="Next image" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-right">&#8594;</button>
+            </div>
+            <div class="award-content">
+                <div class="award-year">2024</div>
+                 <h3>ASMO National Round</h3>
+            <p>Gold Medal in Mathematics, Silver Medal in English. Achieved top results in national-level academic competitions, demonstrating both analytical and linguistic strengths.</p>
+            </div>
+            <script>
+            (function() {
+                const awardCard = document.currentScript.parentElement;
+                const imageContainer = awardCard.querySelector('.award-image');
+                const images = imageContainer.querySelectorAll('.award-photo');
+                let current = 0;
+                let interval = null;
+
+                function showImage(idx) {
+                    images.forEach((img, i) => {
+                        if (i === idx) {
+                            img.style.opacity = 1;
+                            img.style.position = 'relative';
+                            img.style.zIndex = 1;
+                        } else {
+                            img.style.opacity = 0;
+                            img.style.position = 'absolute';
+                            img.style.zIndex = 1;
+                        }
+                    });
+                }
+
+                function nextImage() {
+                    current = (current + 1) % images.length;
+                    showImage(current);
+                }
+
+                function prevImage() {
+                    current = (current - 1 + images.length) % images.length;
+                    showImage(current);
+                }
+
+                // Arrow buttons
+                const leftBtn = imageContainer.querySelector('.award-arrow-left');
+                const rightBtn = imageContainer.querySelector('.award-arrow-right');
+                leftBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    prevImage();
+                });
+                rightBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    nextImage();
+                });
+
+                // Auto slide on hover over the image area
+                imageContainer.addEventListener('mouseenter', function() {
+                    if (interval) clearInterval(interval);
+                    interval = setInterval(nextImage, 1000);
+                });
+                imageContainer.addEventListener('mouseleave', function() {
+                    if (interval) clearInterval(interval);
+                    interval = null;
+                });
+
+                // Start with first image
+                showImage(current);
+            })();
+            </script>
+        </div>
+        <div class="award-card shimmer">
+            <div class="award-image" style="position: relative; aspect-ratio: 4/3; background: #111;">
+                <img src="tiếng nói xanh.jpg" 
+                    alt="Gold Medal certificate for Nguyen Viet Nhat Minh in the IPITEx Biochemistry Category 2024, featuring official logos and text in both English and Thai, with a formal and celebratory tone" 
+                    class="award-photo" data-index="0" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: relative; z-index: 1; background: #222;">
+                <img src="tiếng nói xanh 2.jpg" 
+                    alt="Nguyen Viet Nhat Minh presenting a scientific project at IPITEx 2024, standing beside a display board with charts and diagrams in a bright exhibition hall, focused and confident atmosphere" 
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; z-index: 1; background: #222;" 
+                    class="award-photo" data-index="1">
+                <img src="z6782431132833_cf77c9e05402acb100b00b94db063d67.jpg" 
+                    alt="Award ceremony at IPITEx 2024 with Nguyen Viet Nhat Minh receiving a medal on stage, surrounded by event organizers and other participants, festive and proud mood in a decorated auditorium" 
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; z-index: 1; background: #222;" 
+                    class="award-photo" data-index="2">
+                <button type="button" aria-label="Previous image" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-left">&#8592;</button>
+                <button type="button" aria-label="Next image" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-right">&#8594;</button>
+            </div>
+            <div class="award-content">
+                <div class="award-year">2024</div>
+                 <h3>Encouragement Award – Green Voice Competition</h3>
+            <p>Participated in a community-centered contest promoting environmental awareness and creative expression.</p>
+            </div>
+            <script>
+            (function() {
+                const awardCard = document.currentScript.parentElement;
+                const imageContainer = awardCard.querySelector('.award-image');
+                const images = imageContainer.querySelectorAll('.award-photo');
+                let current = 0;
+                let interval = null;
+
+                function showImage(idx) {
+                    images.forEach((img, i) => {
+                        if (i === idx) {
+                            img.style.opacity = 1;
+                            img.style.position = 'relative';
+                            img.style.zIndex = 1;
+                        } else {
+                            img.style.opacity = 0;
+                            img.style.position = 'absolute';
+                            img.style.zIndex = 1;
+                        }
+                    });
+                }
+
+                function nextImage() {
+                    current = (current + 1) % images.length;
+                    showImage(current);
+                }
+
+                function prevImage() {
+                    current = (current - 1 + images.length) % images.length;
+                    showImage(current);
+                }
+
+                // Arrow buttons
+                const leftBtn = imageContainer.querySelector('.award-arrow-left');
+                const rightBtn = imageContainer.querySelector('.award-arrow-right');
+                leftBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    prevImage();
+                });
+                rightBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    nextImage();
+                });
+
+                // Auto slide on hover over the image area
+                imageContainer.addEventListener('mouseenter', function() {
+                    if (interval) clearInterval(interval);
+                    interval = setInterval(nextImage, 1000);
+                });
+                imageContainer.addEventListener('mouseleave', function() {
+                    if (interval) clearInterval(interval);
+                    interval = null;
+                });
+
+                // Start with first image
+                showImage(current);
+            })();
+            </script>
+        </div>
+        <div class="award-card shimmer">
+            <div class="award-image" style="position: relative; aspect-ratio: 4/3; background: #111;">
+                <img src="SOCIALWORK-20250712T091550Z-1-001/z6798047878298_faefdef7a2ad9e00930498a26dffabc7.jpg" 
+                    alt="Gold Medal certificate for Nguyen Viet Nhat Minh in the IPITEx Biochemistry Category 2024, featuring official logos and text in both English and Thai, with a formal and celebratory tone" 
+                    class="award-photo" data-index="0" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: relative; z-index: 1; background: #222;">
+                <img src="SOCIALWORK-20250712T091550Z-1-001/z6798047890838_1db1a2414374a494bdce509c3763e23f.jpg" 
+                    alt="Nguyen Viet Nhat Minh presenting a scientific project at IPITEx 2024, standing beside a display board with charts and diagrams in a bright exhibition hall, focused and confident atmosphere" 
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; z-index: 1; background: #222;" 
+                    class="award-photo" data-index="1">
+                <img src="SOCIALWORK-20250712T091550Z-1-001/z6798048028837_14642991c9976a206094413abe84e168.jpg" 
+                    alt="Award ceremony at IPITEx 2024 with Nguyen Viet Nhat Minh receiving a medal on stage, surrounded by event organizers and other participants, festive and proud mood in a decorated auditorium" 
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; z-index: 1; background: #222;" 
+                    class="award-photo" data-index="2">
+                <img src="SOCIALWORK-20250712T091550Z-1-001/z6798047902150_3466e1c1c5dbc3e5cc97b008f03f46a0.jpg" 
+                    alt="Award ceremony at IPITEx 2024 with Nguyen Viet Nhat Minh receiving a medal on stage, surrounded by event organizers and other participants, festive and proud mood in a decorated auditorium" 
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; z-index: 1; background: #222;" 
+                    class="award-photo" data-index="3">
+                <img src="SOCIALWORK-20250712T091550Z-1-001/z6798047881520_09b5f1236f7abfe991bed654179e8e0c.jpg" 
+                    alt="Award ceremony at IPITEx 2024 with Nguyen Viet Nhat Minh receiving a medal on stage, surrounded by event organizers and other participants, festive and proud mood in a decorated auditorium" 
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; z-index: 1; background: #222;" 
+                    class="award-photo" data-index="4">
+                <button type="button" aria-label="Previous image" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-left">&#8592;</button>
+                <button type="button" aria-label="Next image" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: #00ffff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;" class="award-arrow award-arrow-right">&#8594;</button>
+            </div>
+            <div class="award-content">
+                <div class="award-year">2024</div>
+                 <h3>Third Prize – Cultural Performance Competition</h3>
+            <p>Honored for excellence in team performance and event coordination at HSGS's Anniversary.</p>
+            </div>
+            <script>
+            (function() {
+                const awardCard = document.currentScript.parentElement;
+                const imageContainer = awardCard.querySelector('.award-image');
+                const images = imageContainer.querySelectorAll('.award-photo');
+                let current = 0;
+                let interval = null;
+
+                function showImage(idx) {
+                    images.forEach((img, i) => {
+                        if (i === idx) {
+                            img.style.opacity = 1;
+                            img.style.position = 'relative';
+                            img.style.zIndex = 1;
+                        } else {
+                            img.style.opacity = 0;
+                            img.style.position = 'absolute';
+                            img.style.zIndex = 1;
+                        }
+                    });
+                }
+
+                function nextImage() {
+                    current = (current + 1) % images.length;
+                    showImage(current);
+                }
+
+                function prevImage() {
+                    current = (current - 1 + images.length) % images.length;
+                    showImage(current);
+                }
+
+                // Arrow buttons
+                const leftBtn = imageContainer.querySelector('.award-arrow-left');
+                const rightBtn = imageContainer.querySelector('.award-arrow-right');
+                leftBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    prevImage();
+                });
+                rightBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    nextImage();
+                });
+
+                // Auto slide on hover over the image area
+                imageContainer.addEventListener('mouseenter', function() {
+                    if (interval) clearInterval(interval);
+                    interval = setInterval(nextImage, 1000);
+                });
+                imageContainer.addEventListener('mouseleave', function() {
+                    if (interval) clearInterval(interval);
+                    interval = null;
+                });
+
+                // Start with first image
+                showImage(current);
+            })();
+            </script>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+</head>
+<body>
+    <div class="geometric-bg">
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+        <div class="geometric-shape shape-3"></div>
+        <div class="geometric-shape shape-4"></div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">NHAT MINH</div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="CON_AWARD.html" target="_blank">Honors & Awards</a></li>
+                <li><a href="leadership.html" target="_blank">Leadership</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyen Viet Nhat Minh - Leadership & Social Work</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #00ffff;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #00ffff, #0080ff);
+        }
+
+        .leadership-card {
+            background: rgba(10, 20, 30, 0.8);
+            padding: 3rem;
+            border-left: 4px solid #00ffff;
+            transition: all 0.3s ease;
+            margin-bottom: 5rem;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 255, 255, 0.2);
+        }
+
+        .leadership-card h3 {
+            color: #00ffff;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .leadership-card p {
+            margin-bottom: 2rem;
+        }
+
+        .floating-images {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .floating-image {
+            position: absolute;
+            width: 200px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            animation: float ease-in-out infinite;
+        }
+
+        .floating-image.pos-1 {
+            top: 10%;
+            left: 10%;
+            animation-duration: 4s;
+        }
+
+        .floating-image.pos-2 {
+            top: 30%;
+            left: 40%;
+            animation-duration: 5s;
+        }
+
+        .floating-image.pos-3 {
+            top: 50%;
+            left: 20%;
+            animation-duration: 6s;
+        }
+
+        .floating-image.pos-4 {
+            top: 70%;
+            left: 60%;
+            animation-duration: 7s;
+        }
+
+        .floating-image.pos-5 {
+            top: 20%;
+            left: 70%;
+            animation-duration: 8s;
+        }
+
+        .floating-image.pos-6 {
+            top: 80%;
+            left: 30%;
+            animation-duration: 9s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, 0); }
+        }
+    </style>
+</head>
+<body>
+    <section id="leadership" class="section">
+        <h2>Leadership & Social Work</h2>
+        <div class="leadership-content">
+            <div class="leadership-card">
+                <h3>Founder – Ant Community: Hospital Cultural Program</h3>
+                <p>Created and led a student-run initiative to bring music and performance to hospital patients, combining creativity with emotional support. Oversaw organization, coordination, and student engagement efforts.</p>
+                <div class="floating-images">
+                    <img src="z6782786626099_900083c86f56bbc74017c80ece171784.jpg" class="floating-image pos-1" alt="Thăm bệnh viện 1">
+                    <img src="z6782791202663_d0155df3b6fe542e103e22ea4c8b3104.jpg" class="floating-image pos-2" alt="Biểu diễn">
+                    <img src="z6782791203432_34ffba33e19fe9e649f4894a5fa3839f.jpg" class="floating-image pos-3" alt="Ảnh nhóm">
+                    <img src="z6782791285399_0cfb357b385fcad56de33a2ca4a34a67.jpg" class="floating-image pos-4" alt="Chứng nhận">
+                    <img src="SOCIALWORK-20250712T091550Z-1-001/z6782421677832_2079e1f6e8bf1d448b8d3d4606cf61bb.jpg" class="floating-image pos-5" alt="Chứng nhận">
+                    <img src="cộng đồng kiến 2.jpg" class="floating-image pos-6" alt="Chứng nhận">
+                </div>
+            </div>
+
+            <div class="leadership-card">
+                <h3>Ant Community – Organizing Member</h3>
+                <p>Helped run cultural performance events in hospitals to uplift patients and promote emotional well-being.</p>
+                <div class="floating-images">
+                    <img src="SOCIALWORK-20250712T091550Z-1-001/z6782404219489_97c6392eafc2cb597e14752c838208fe (1).jpg" class="floating-image pos-1" alt="Sự kiện 1">
+                    <img src="SOCIALWORK-20250712T091550Z-1-001/z6782403378963_32c9681ca341b14dea5914f64fedf92a.jpg" class="floating-image pos-2" alt="Sự kiện 2">
+                    <img src="SOCIALWORK-20250712T091550Z-1-001/z6782468780685_7446280a783a7fb324bd7d61ac96b226.jpg" class="floating-image pos-3" alt="Sự kiện 3">
+                    <img src="SOCIALWORK-20250712T091550Z-1-001/z6784612979165_c40390f3c6d7f4c5ece018815cae927b.jpg" class="floating-image pos-4" alt="Sự kiện 4">
+                    <img src="SOCIALWORK-20250712T091550Z-1-001/z6782423306676_e36fd414f8c68b1f92229cf5845f9079.jpg" class="floating-image pos-5" alt="Sự kiện 5">
+                </div>
+            </div>
+
+            <div class="leadership-card">
+                <h3>District - Level Post-Storm Tree Cleanup</h3>
+                <p>Participated in environmental recovery efforts, contributing to local resilience and community restoration.</p>
+                <div class="floating-images">
+                    <img src="SOCIALWORK-20250712T091550Z-1-001/z6782406257416_8921850b74f684f82112f8dfa433b106.jpg" class="floating-image pos-1" alt="Dọn dẹp 1">
+                    <img src="SOCIALWORK-20250712T091550Z-1-001/z6782467885339_81eadb5b2552372187ec9c0f82f4991d.jpg" class="floating-image pos-2" alt="Dọn dẹp 2">
+                    <img src="cộng đồng kiến1.jpg" class="floating-image pos-3" alt="Làm việc nhóm">
+                </div>
+            </div>
+
+            <div class="leadership-card">
+                <h3>Volunteer – Exam Support Program at HSGS</h3>
+                <p>Provided logistical and motivational support for students during major school examinations.</p>
+                <div class="floating-images">
+                    <img src="SOCIALWORK-20250712T091550Z-1-001/z6782404837815_07077304448c4fceea6555f7ef3a4068.jpg" class="floating-image pos-1" alt="Hỗ trợ 1">
+                    <img src="SOCIALWORK-20250712T091550Z-1-001/z6782402929530_1696729680cddd427f3af19e59f5b5ea.jpg" class="floating-image pos-2" alt="Hỗ trợ 2">
+                </div>
+            </div>
+
+            <div class="leadership-card">
+                <h3>Teaching Volunteer – Vân Hồ Program</h3>
+                <p>Traveled to rural areas to deliver educational workshops, helping to bridge the gap in access to quality education.</p>
+                <div class="floating-images">
+                    <img src="z6782786626099_900083c86f56bbc74017c80ece171784.jpg" class="floating-image pos-1" alt="Giảng dạy 1">
+                    <img src="z6782786626099_900083c86f56bbc74017c80ece171784.jpg" class="floating-image pos-2" alt="Giảng dạy 2">
+                    <img src="z6782791203432_34ffba33e19fe9e649f4894a5fa3839f.jpg" class="floating-image pos-3" alt="Học sinh">
+                    <img src="z6782791202663_d0155df3b6fe542e103e22ea4c8b3104.jpg" class="floating-image pos-4" alt="Ảnh nhóm">
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .floating-images {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden; /* Chỉ cho phép ảnh trôi trong khung */
+            margin-bottom: 2rem;
+            background: transparent;
+        }
+        .floating-image {
+            position: absolute;
+            max-width: 320px;
+            max-height: 220px;
+            width: auto;
+            height: auto;
+            object-fit: contain; /* Hiển thị đúng tỉ lệ thật */
+            border-radius: 10px;
+            animation: float ease-in-out infinite;
+            background: #222;
+            box-shadow: 0 2px 16px 2px rgba(0,0,0,0.25);
+            transition:
+                transform 0.45s cubic-bezier(.4,2,.6,1),
+                box-shadow 0.4s,
+                z-index 0.4s;
+            z-index: 1;
+            pointer-events: auto;
+        }
+        .floating-image.active {
+            z-index: 20;
+            transform: scale(1.25) !important;
+            box-shadow: 0 12px 60px 12px rgba(0,0,0,0.7);
+            transition:
+                transform 0.45s cubic-bezier(.4,2,.6,1),
+                box-shadow 0.4s,
+                z-index 0.4s;
+        }
+        /* Điều chỉnh lại vị trí để ảnh không bị chồng lên nhau quá nhiều */
+        .floating-image.pos-1 { top: 5%; left: 5%; animation-duration: 4s; }
+        .floating-image.pos-2 { top: 15%; left: 40%; animation-duration: 5s; }
+        .floating-image.pos-3 { top: 55%; left: 15%; animation-duration: 6s; }
+        .floating-image.pos-4 { top: 60%; left: 60%; animation-duration: 7s; }
+        .floating-image.pos-5 { top: 10%; left: 75%; animation-duration: 8s; }
+        .floating-image.pos-6 { top: 70%; left: 35%; animation-duration: 9s; }
+    </style>
+    <script>
+    document.querySelectorAll('.floating-images').forEach(function(container) {
+        const images = container.querySelectorAll('.floating-image');
+        let isHoveringImage = false;
+        let lastMouseY = 0;
+
+        // Zoom effect on image hover
+        images.forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                isHoveringImage = true;
+                images.forEach(i => i.classList.remove('active'));
+                img.classList.add('active');
+            });
+            img.addEventListener('mouseleave', function() {
+                isHoveringImage = false;
+                img.classList.remove('active');
+            });
+        });
+
+        // Floating effect follow mouse Y axis (vertical) when not hovering any image
+        container.addEventListener('mousemove', function(e) {
+            const rect = container.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+            lastMouseY = mouseY;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            images.forEach((img, idx) => {
+                if (img.classList.contains('active')) return;
+                // Mỗi ảnh di chuyển khác nhau dựa trên index
+                const dx = (mouseX - centerX) / 18 * (1 + idx * 0.2);
+                const dy = (mouseY - centerY) / 10 * (1 + idx * 0.2);
+                img.style.transition = 'transform 0.3s cubic-bezier(.4,2,.6,1)';
+                img.style.transform = `translate(${dx}px, ${dy}px)`;
+            });
+        });
+
+        // Reset images when mouse leaves the container
+        container.addEventListener('mouseleave', function() {
+            images.forEach(img => {
+                img.style.transform = '';
+                img.classList.remove('active');
+            });
+            isHoveringImage = false;
+        });
+    });
+    </script>
+</body>
+</html>
